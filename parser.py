@@ -25,6 +25,7 @@ class HeadHunterAPI(JobAPI):
         else:
             return []
 
+
 # Класс для хранения информации о вакансии
 class Vacancy:
     def __init__(self, title, url, salary_from, salary_to, description):
@@ -44,5 +45,20 @@ class Vacancy:
         return self.salary_from == other.salary_from
 
 
+# Абстрактный класс для работы с хранилищем вакансий
+class VacancyStorage(ABC):
+    @abstractmethod
+    def add_vacancy(self, vacancy):
+        pass
 
+    @abstractmethod
+    def get_vacancies(self, **criteria):
+        pass
+
+    @abstractmethod
+    def delete_vacancy(self, vacancy):
+        pass
+
+
+# Класс для работы с JSON файлом
 
