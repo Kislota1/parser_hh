@@ -61,4 +61,8 @@ class VacancyStorage(ABC):
 
 
 # Класс для работы с JSON файлом
+class JSONVacancyStorage(VacancyStorage):
+    def __init__(self, file_path):
+        self.file_path = file_path
+
 
